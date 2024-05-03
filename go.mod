@@ -3,7 +3,10 @@ module github.com/converged-computing/fluxion
 go 1.21
 
 require (
+	github.com/compspec/jobspec-go v0.0.0-20240502225416-90dd9994d697
+	github.com/converged-computing/jsongraph-go v0.0.0-20240229082022-c6887a5a00fe
 	github.com/flux-framework/fluxion-go v0.32.1-0.20240420052153-909523c84ca2
+	github.com/pkg/errors v0.9.1
 	google.golang.org/grpc v1.38.0
 	google.golang.org/protobuf v1.26.0
 	gopkg.in/yaml.v2 v2.4.0
@@ -15,11 +18,13 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
+	github.com/santhosh-tekuri/jsonschema/v5 v5.3.1 // indirect
 	golang.org/x/net v0.0.0-20210520170846-37e1c6afe023 // indirect
 	golang.org/x/sys v0.0.0-20210616094352-59db8d763f22 // indirect
 	golang.org/x/text v0.3.6 // indirect
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
+	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
 replace (
