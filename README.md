@@ -1,10 +1,10 @@
-# Fluxion
+# Fluxion Service
 
 > Hierarchical Memory Graph Database 🕶️
 
 ![img/fluxion-banner.jpg](img/fluxion-banner.jpg)
 
-Fluxion is the [flux-sched](https://github.com/flux-framework/flux-sched) project packaged and provided as a containerized graph database. You can interact with it using any language that can interact with the gRPC endpoints. Example and client libraries are provided here.
+The Fluxion Service is the [flux-sched](https://github.com/flux-framework/flux-sched) "fluxion" project packaged and provided as a containerized graph database. You can interact with it using any language that can interact with the gRPC endpoints. Example and client libraries are provided here.
 
 
 ## Usage
