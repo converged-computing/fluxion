@@ -61,6 +61,7 @@ And that's it!
 - cute gopher logo!
 - replace jobspec here with jobspec-go
 - assess use cases for service grpc
+- when flux-sched supports JGF v2, upgrade here.
 
 ## Thank you
 

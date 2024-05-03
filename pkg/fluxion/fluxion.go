@@ -1,9 +1,9 @@
 package fluxion
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
 	pb "github.com/converged-computing/fluxion/pkg/fluxion-grpc"
 	"github.com/converged-computing/fluxion/pkg/jobspec"
@@ -27,13 +27,7 @@ func (f *Fluxion) Init(ctx context.Context, in *pb.InitRequest) (*pb.InitRespons
 	fmt.Printf("[Fluxion] Created flux memory graph")
 
 	// Note that we currently take in JGF version 2, and convert to v1 here for flux.
-	gv1, err := createJGF(in.Jgf)
-
-	if err != nil {
-		response.Status = pb.InitResponse_INIT_ERROR
-		return &response, err
-	}
-
+	// gv1, err := createJGF(in.Jgf)
 	policyRequest := "{}"
 	if in.Policy != "" {
 		policyRequest = string("{\"matcher_policy\": \"" + in.Policy + "\"}")
@@ -41,18 +35,30 @@ func (f *Fluxion) Init(ctx context.Context, in *pb.InitRequest) (*pb.InitRespons
 	}
 
 	// Dump the jgf version 1 into a string for flux
-	raw, err := json.Marshal(gv1)
-	out := string(raw)
-	fmt.Println(out)
-	err = f.cli.InitContext(out, policyRequest)
+	// raw, err := json.Marshal(gv1)
+	// out := string(raw)
+	// fmt.Println(out)
+
+	err := f.cli.InitContext(in.Jgf, policyRequest)
 	if err != nil {
 		response.Status = pb.InitResponse_INIT_ERROR
+		f.ShowError()
 		return &response, err
 	}
 
 	// Successful response!
 	response.Status = pb.InitResponse_INIT_SUCCESS
+	if err != nil {
+		response.Status = pb.InitResponse_INIT_ERROR
+		f.ShowError()
+	}
 	return &response, err
+}
+
+// Get error wrapped in more meaningful message
+func (f *Fluxion) ShowError() {
+	msg := f.cli.GetErrMsg()
+	fmt.Println("\n" + strings.ReplaceAll(msg, "\n\n", ""))
 }
 
 // Cancel wraps the Cancel function of the fluxion go bindings

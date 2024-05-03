@@ -18,6 +18,11 @@ const (
 	defaultPolicy = "lonode"
 )
 
+//go:embed cluster-nodes-v2.json
+var jgfV2 string
+
+// Note we are using v1 that flux currently uses
+//
 //go:embed cluster-nodes.json
 var jgf string
 
@@ -26,7 +31,7 @@ func main() {
 	fmt.Println("🦩️ This is the fluxion graph client")
 	grpcPort := flag.String("port", defaultPort, "Port for grpc service")
 	grpcHost := flag.String("host", defaultHost, "Host for grpc service")
-	matchPolicy := flag.String("policy", defaultHost, "Policy for fluxion")
+	matchPolicy := flag.String("policy", defaultPolicy, "Policy for fluxion")
 	flag.Parse()
 
 	// Ensure our port starts with :

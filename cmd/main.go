@@ -21,7 +21,7 @@ const (
 var responsechan chan string
 
 func main() {
-	fmt.Println("This is the fluxion graph server")
+	fmt.Println("🦩️ This is the fluxion graph server")
 	grpcPort := flag.String("port", defaultPort, "Port for grpc service")
 	flag.Parse()
 

@@ -1,1274 +1,3490 @@
 {
     "graph": {
-      "directed": true,
-      "nodes": {
-        "0": {
-          "label": "0",
+      "nodes": [
+        {
+          "id": "0",
           "metadata": {
-            "basename": "cluster-red",
-            "exclusive": false,
-            "id": 0,
-            "name": "cluster-red0",
-            "paths": {
-              "containment": "/cluster-red0"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "cluster",
+            "basename": "tiny",
+            "name": "tiny0",
+            "id": 0,
             "uniq_id": 0,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0"
+            }
           }
         },
-        "1": {
-          "label": "1",
+        {
+          "id": "1",
           "metadata": {
-            "basename": "rack",
-            "exclusive": false,
-            "id": "0",
-            "name": "rack0",
-            "paths": {
-              "containment": "/cluster-red0/rack0"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "rack",
+            "basename": "rack",
+            "name": "rack0",
+            "id": 0,
             "uniq_id": 1,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0"
+            }
           }
         },
-        "10": {
-          "label": "10",
+        {
+          "id": "2",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "6",
-            "name": "core6",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core6"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 10,
-            "unit": ""
-          }
-        },
-        "11": {
-          "label": "11",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "7",
-            "name": "core7",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core7"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 11,
-            "unit": ""
-          }
-        },
-        "12": {
-          "label": "12",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "8",
-            "name": "core8",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core8"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 12,
-            "unit": ""
-          }
-        },
-        "13": {
-          "label": "13",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "9",
-            "name": "core9",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core9"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 13,
-            "unit": ""
-          }
-        },
-        "14": {
-          "label": "14",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "10",
-            "name": "core10",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core10"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 14,
-            "unit": ""
-          }
-        },
-        "15": {
-          "label": "15",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "11",
-            "name": "core11",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core11"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 15,
-            "unit": ""
-          }
-        },
-        "16": {
-          "label": "16",
-          "metadata": {
-            "basename": "node",
-            "exclusive": false,
-            "id": "1",
-            "name": "node1",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "node",
-            "uniq_id": 16,
-            "unit": ""
-          }
-        },
-        "17": {
-          "label": "17",
-          "metadata": {
-            "basename": "socket",
-            "exclusive": false,
-            "id": "1",
-            "name": "socket1",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "socket",
-            "uniq_id": 17,
-            "unit": ""
-          }
-        },
-        "18": {
-          "label": "18",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "12",
-            "name": "core12",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core12"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 18,
-            "unit": ""
-          }
-        },
-        "19": {
-          "label": "19",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "13",
-            "name": "core13",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core13"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 19,
-            "unit": ""
-          }
-        },
-        "2": {
-          "label": "2",
-          "metadata": {
             "basename": "node",
-            "exclusive": false,
-            "id": "0",
             "name": "node0",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "node",
+            "id": 0,
             "uniq_id": 2,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0"
+            }
           }
         },
-        "20": {
-          "label": "20",
+        {
+          "id": "3",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "14",
-            "name": "core14",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core14"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 20,
-            "unit": ""
-          }
-        },
-        "21": {
-          "label": "21",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "15",
-            "name": "core15",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core15"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 21,
-            "unit": ""
-          }
-        },
-        "22": {
-          "label": "22",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "16",
-            "name": "core16",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core16"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 22,
-            "unit": ""
-          }
-        },
-        "23": {
-          "label": "23",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "17",
-            "name": "core17",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core17"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 23,
-            "unit": ""
-          }
-        },
-        "24": {
-          "label": "24",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "18",
-            "name": "core18",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core18"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 24,
-            "unit": ""
-          }
-        },
-        "25": {
-          "label": "25",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "19",
-            "name": "core19",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core19"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 25,
-            "unit": ""
-          }
-        },
-        "26": {
-          "label": "26",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "20",
-            "name": "core20",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core20"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 26,
-            "unit": ""
-          }
-        },
-        "27": {
-          "label": "27",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "21",
-            "name": "core21",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core21"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 27,
-            "unit": ""
-          }
-        },
-        "28": {
-          "label": "28",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "22",
-            "name": "core22",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core22"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 28,
-            "unit": ""
-          }
-        },
-        "29": {
-          "label": "29",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "23",
-            "name": "core23",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node1/socket1/core23"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 29,
-            "unit": ""
-          }
-        },
-        "3": {
-          "label": "3",
-          "metadata": {
-            "basename": "socket",
-            "exclusive": false,
-            "id": "0",
-            "name": "socket0",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "socket",
-            "uniq_id": 3,
-            "unit": ""
-          }
-        },
-        "30": {
-          "label": "30",
-          "metadata": {
-            "basename": "node",
-            "exclusive": false,
-            "id": "2",
-            "name": "node2",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "node",
-            "uniq_id": 30,
-            "unit": ""
+            "basename": "node",
+            "name": "node1",
+            "id": 1,
+            "uniq_id": 3,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1"
+            }
           }
         },
-        "31": {
-          "label": "31",
+        {
+          "id": "4",
           "metadata": {
-            "basename": "socket",
-            "exclusive": false,
-            "id": "2",
-            "name": "socket2",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "socket",
-            "uniq_id": 31,
-            "unit": ""
-          }
-        },
-        "32": {
-          "label": "32",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "24",
-            "name": "core24",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core24"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 32,
-            "unit": ""
-          }
-        },
-        "33": {
-          "label": "33",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "25",
-            "name": "core25",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core25"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 33,
-            "unit": ""
-          }
-        },
-        "34": {
-          "label": "34",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "26",
-            "name": "core26",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core26"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 34,
-            "unit": ""
-          }
-        },
-        "35": {
-          "label": "35",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "27",
-            "name": "core27",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core27"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 35,
-            "unit": ""
-          }
-        },
-        "36": {
-          "label": "36",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "28",
-            "name": "core28",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core28"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 36,
-            "unit": ""
-          }
-        },
-        "37": {
-          "label": "37",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "29",
-            "name": "core29",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core29"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 37,
-            "unit": ""
-          }
-        },
-        "38": {
-          "label": "38",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "30",
-            "name": "core30",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core30"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 38,
-            "unit": ""
-          }
-        },
-        "39": {
-          "label": "39",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "31",
-            "name": "core31",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core31"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 39,
-            "unit": ""
-          }
-        },
-        "4": {
-          "label": "4",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "0",
-            "name": "core0",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core0"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
+            "basename": "socket",
+            "name": "socket0",
+            "id": 0,
             "uniq_id": 4,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0"
+            }
           }
         },
-        "40": {
-          "label": "40",
+        {
+          "id": "5",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "32",
-            "name": "core32",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core32"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 40,
-            "unit": ""
-          }
-        },
-        "41": {
-          "label": "41",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "33",
-            "name": "core33",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core33"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 41,
-            "unit": ""
-          }
-        },
-        "42": {
-          "label": "42",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "34",
-            "name": "core34",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core34"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 42,
-            "unit": ""
-          }
-        },
-        "43": {
-          "label": "43",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "35",
-            "name": "core35",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node2/socket2/core35"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
-            "uniq_id": 43,
-            "unit": ""
-          }
-        },
-        "5": {
-          "label": "5",
-          "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "1",
-            "name": "core1",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core1"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
+            "type": "socket",
+            "basename": "socket",
+            "name": "socket1",
+            "id": 1,
             "uniq_id": 5,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1"
+            }
           }
         },
-        "6": {
-          "label": "6",
+        {
+          "id": "6",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "2",
-            "name": "core2",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core2"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
+            "type": "socket",
+            "basename": "socket",
+            "name": "socket0",
+            "id": 0,
             "uniq_id": 6,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0"
+            }
           }
         },
-        "7": {
-          "label": "7",
+        {
+          "id": "7",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "3",
-            "name": "core3",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core3"
-            },
-            "rank": -1,
-            "size": 1,
-            "type": "core",
+            "type": "socket",
+            "basename": "socket",
+            "name": "socket1",
+            "id": 1,
             "uniq_id": 7,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1"
+            }
           }
         },
-        "8": {
-          "label": "8",
+        {
+          "id": "8",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "4",
-            "name": "core4",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core4"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "core",
+            "basename": "core",
+            "name": "core0",
+            "id": 0,
             "uniq_id": 8,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core0"
+            }
           }
         },
-        "9": {
-          "label": "9",
+        {
+          "id": "9",
           "metadata": {
-            "basename": "core",
-            "exclusive": false,
-            "id": "5",
-            "name": "core5",
-            "paths": {
-              "containment": "/cluster-red0/rack0/node0/socket0/core5"
-            },
-            "rank": -1,
-            "size": 1,
             "type": "core",
+            "basename": "core",
+            "name": "core1",
+            "id": 1,
             "uniq_id": 9,
-            "unit": ""
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core1"
+            }
+          }
+        },
+        {
+          "id": "10",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core2",
+            "id": 2,
+            "uniq_id": 10,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core2"
+            }
+          }
+        },
+        {
+          "id": "11",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core3",
+            "id": 3,
+            "uniq_id": 11,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core3"
+            }
+          }
+        },
+        {
+          "id": "12",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core4",
+            "id": 4,
+            "uniq_id": 12,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core4"
+            }
+          }
+        },
+        {
+          "id": "13",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core5",
+            "id": 5,
+            "uniq_id": 13,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core5"
+            }
+          }
+        },
+        {
+          "id": "14",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core6",
+            "id": 6,
+            "uniq_id": 14,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core6"
+            }
+          }
+        },
+        {
+          "id": "15",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core7",
+            "id": 7,
+            "uniq_id": 15,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core7"
+            }
+          }
+        },
+        {
+          "id": "16",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core8",
+            "id": 8,
+            "uniq_id": 16,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core8"
+            }
+          }
+        },
+        {
+          "id": "17",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core9",
+            "id": 9,
+            "uniq_id": 17,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core9"
+            }
+          }
+        },
+        {
+          "id": "18",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core10",
+            "id": 10,
+            "uniq_id": 18,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core10"
+            }
+          }
+        },
+        {
+          "id": "19",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core11",
+            "id": 11,
+            "uniq_id": 19,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core11"
+            }
+          }
+        },
+        {
+          "id": "20",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core12",
+            "id": 12,
+            "uniq_id": 20,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core12"
+            }
+          }
+        },
+        {
+          "id": "21",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core13",
+            "id": 13,
+            "uniq_id": 21,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core13"
+            }
+          }
+        },
+        {
+          "id": "22",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core14",
+            "id": 14,
+            "uniq_id": 22,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core14"
+            }
+          }
+        },
+        {
+          "id": "23",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core15",
+            "id": 15,
+            "uniq_id": 23,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core15"
+            }
+          }
+        },
+        {
+          "id": "24",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core16",
+            "id": 16,
+            "uniq_id": 24,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core16"
+            }
+          }
+        },
+        {
+          "id": "25",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core17",
+            "id": 17,
+            "uniq_id": 25,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/core17"
+            }
+          }
+        },
+        {
+          "id": "26",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core18",
+            "id": 18,
+            "uniq_id": 26,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core18"
+            }
+          }
+        },
+        {
+          "id": "27",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core19",
+            "id": 19,
+            "uniq_id": 27,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core19"
+            }
+          }
+        },
+        {
+          "id": "28",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core20",
+            "id": 20,
+            "uniq_id": 28,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core20"
+            }
+          }
+        },
+        {
+          "id": "29",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core21",
+            "id": 21,
+            "uniq_id": 29,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core21"
+            }
+          }
+        },
+        {
+          "id": "30",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core22",
+            "id": 22,
+            "uniq_id": 30,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core22"
+            }
+          }
+        },
+        {
+          "id": "31",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core23",
+            "id": 23,
+            "uniq_id": 31,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core23"
+            }
+          }
+        },
+        {
+          "id": "32",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core24",
+            "id": 24,
+            "uniq_id": 32,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core24"
+            }
+          }
+        },
+        {
+          "id": "33",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core25",
+            "id": 25,
+            "uniq_id": 33,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core25"
+            }
+          }
+        },
+        {
+          "id": "34",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core26",
+            "id": 26,
+            "uniq_id": 34,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core26"
+            }
+          }
+        },
+        {
+          "id": "35",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core27",
+            "id": 27,
+            "uniq_id": 35,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core27"
+            }
+          }
+        },
+        {
+          "id": "36",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core28",
+            "id": 28,
+            "uniq_id": 36,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core28"
+            }
+          }
+        },
+        {
+          "id": "37",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core29",
+            "id": 29,
+            "uniq_id": 37,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core29"
+            }
+          }
+        },
+        {
+          "id": "38",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core30",
+            "id": 30,
+            "uniq_id": 38,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core30"
+            }
+          }
+        },
+        {
+          "id": "39",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core31",
+            "id": 31,
+            "uniq_id": 39,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core31"
+            }
+          }
+        },
+        {
+          "id": "40",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core32",
+            "id": 32,
+            "uniq_id": 40,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core32"
+            }
+          }
+        },
+        {
+          "id": "41",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core33",
+            "id": 33,
+            "uniq_id": 41,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core33"
+            }
+          }
+        },
+        {
+          "id": "42",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core34",
+            "id": 34,
+            "uniq_id": 42,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core34"
+            }
+          }
+        },
+        {
+          "id": "43",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core35",
+            "id": 35,
+            "uniq_id": 43,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/core35"
+            }
+          }
+        },
+        {
+          "id": "44",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core0",
+            "id": 0,
+            "uniq_id": 44,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core0"
+            }
+          }
+        },
+        {
+          "id": "45",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core1",
+            "id": 1,
+            "uniq_id": 45,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core1"
+            }
+          }
+        },
+        {
+          "id": "46",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core2",
+            "id": 2,
+            "uniq_id": 46,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core2"
+            }
+          }
+        },
+        {
+          "id": "47",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core3",
+            "id": 3,
+            "uniq_id": 47,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core3"
+            }
+          }
+        },
+        {
+          "id": "48",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core4",
+            "id": 4,
+            "uniq_id": 48,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core4"
+            }
+          }
+        },
+        {
+          "id": "49",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core5",
+            "id": 5,
+            "uniq_id": 49,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core5"
+            }
+          }
+        },
+        {
+          "id": "50",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core6",
+            "id": 6,
+            "uniq_id": 50,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core6"
+            }
+          }
+        },
+        {
+          "id": "51",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core7",
+            "id": 7,
+            "uniq_id": 51,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core7"
+            }
+          }
+        },
+        {
+          "id": "52",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core8",
+            "id": 8,
+            "uniq_id": 52,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core8"
+            }
+          }
+        },
+        {
+          "id": "53",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core9",
+            "id": 9,
+            "uniq_id": 53,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core9"
+            }
+          }
+        },
+        {
+          "id": "54",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core10",
+            "id": 10,
+            "uniq_id": 54,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core10"
+            }
+          }
+        },
+        {
+          "id": "55",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core11",
+            "id": 11,
+            "uniq_id": 55,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core11"
+            }
+          }
+        },
+        {
+          "id": "56",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core12",
+            "id": 12,
+            "uniq_id": 56,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core12"
+            }
+          }
+        },
+        {
+          "id": "57",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core13",
+            "id": 13,
+            "uniq_id": 57,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core13"
+            }
+          }
+        },
+        {
+          "id": "58",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core14",
+            "id": 14,
+            "uniq_id": 58,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core14"
+            }
+          }
+        },
+        {
+          "id": "59",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core15",
+            "id": 15,
+            "uniq_id": 59,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core15"
+            }
+          }
+        },
+        {
+          "id": "60",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core16",
+            "id": 16,
+            "uniq_id": 60,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core16"
+            }
+          }
+        },
+        {
+          "id": "61",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core17",
+            "id": 17,
+            "uniq_id": 61,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/core17"
+            }
+          }
+        },
+        {
+          "id": "62",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core18",
+            "id": 18,
+            "uniq_id": 62,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core18"
+            }
+          }
+        },
+        {
+          "id": "63",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core19",
+            "id": 19,
+            "uniq_id": 63,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core19"
+            }
+          }
+        },
+        {
+          "id": "64",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core20",
+            "id": 20,
+            "uniq_id": 64,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core20"
+            }
+          }
+        },
+        {
+          "id": "65",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core21",
+            "id": 21,
+            "uniq_id": 65,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core21"
+            }
+          }
+        },
+        {
+          "id": "66",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core22",
+            "id": 22,
+            "uniq_id": 66,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core22"
+            }
+          }
+        },
+        {
+          "id": "67",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core23",
+            "id": 23,
+            "uniq_id": 67,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core23"
+            }
+          }
+        },
+        {
+          "id": "68",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core24",
+            "id": 24,
+            "uniq_id": 68,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core24"
+            }
+          }
+        },
+        {
+          "id": "69",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core25",
+            "id": 25,
+            "uniq_id": 69,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core25"
+            }
+          }
+        },
+        {
+          "id": "70",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core26",
+            "id": 26,
+            "uniq_id": 70,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core26"
+            }
+          }
+        },
+        {
+          "id": "71",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core27",
+            "id": 27,
+            "uniq_id": 71,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core27"
+            }
+          }
+        },
+        {
+          "id": "72",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core28",
+            "id": 28,
+            "uniq_id": 72,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core28"
+            }
+          }
+        },
+        {
+          "id": "73",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core29",
+            "id": 29,
+            "uniq_id": 73,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core29"
+            }
+          }
+        },
+        {
+          "id": "74",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core30",
+            "id": 30,
+            "uniq_id": 74,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core30"
+            }
+          }
+        },
+        {
+          "id": "75",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core31",
+            "id": 31,
+            "uniq_id": 75,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core31"
+            }
+          }
+        },
+        {
+          "id": "76",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core32",
+            "id": 32,
+            "uniq_id": 76,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core32"
+            }
+          }
+        },
+        {
+          "id": "77",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core33",
+            "id": 33,
+            "uniq_id": 77,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core33"
+            }
+          }
+        },
+        {
+          "id": "78",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core34",
+            "id": 34,
+            "uniq_id": 78,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core34"
+            }
+          }
+        },
+        {
+          "id": "79",
+          "metadata": {
+            "type": "core",
+            "basename": "core",
+            "name": "core35",
+            "id": 35,
+            "uniq_id": 79,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/core35"
+            }
+          }
+        },
+        {
+          "id": "80",
+          "metadata": {
+            "type": "gpu",
+            "basename": "gpu",
+            "name": "gpu0",
+            "id": 0,
+            "uniq_id": 80,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/gpu0"
+            }
+          }
+        },
+        {
+          "id": "81",
+          "metadata": {
+            "type": "gpu",
+            "basename": "gpu",
+            "name": "gpu1",
+            "id": 1,
+            "uniq_id": 81,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/gpu1"
+            }
+          }
+        },
+        {
+          "id": "82",
+          "metadata": {
+            "type": "gpu",
+            "basename": "gpu",
+            "name": "gpu0",
+            "id": 0,
+            "uniq_id": 82,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/gpu0"
+            }
+          }
+        },
+        {
+          "id": "83",
+          "metadata": {
+            "type": "gpu",
+            "basename": "gpu",
+            "name": "gpu1",
+            "id": 1,
+            "uniq_id": 83,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "",
+            "size": 1,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/gpu1"
+            }
+          }
+        },
+        {
+          "id": "84",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory0",
+            "id": 0,
+            "uniq_id": 84,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/memory0"
+            }
+          }
+        },
+        {
+          "id": "85",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory1",
+            "id": 1,
+            "uniq_id": 85,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/memory1"
+            }
+          }
+        },
+        {
+          "id": "86",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory2",
+            "id": 2,
+            "uniq_id": 86,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/memory2"
+            }
+          }
+        },
+        {
+          "id": "87",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory3",
+            "id": 3,
+            "uniq_id": 87,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket0/memory3"
+            }
+          }
+        },
+        {
+          "id": "88",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory4",
+            "id": 4,
+            "uniq_id": 88,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/memory4"
+            }
+          }
+        },
+        {
+          "id": "89",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory5",
+            "id": 5,
+            "uniq_id": 89,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/memory5"
+            }
+          }
+        },
+        {
+          "id": "90",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory6",
+            "id": 6,
+            "uniq_id": 90,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/memory6"
+            }
+          }
+        },
+        {
+          "id": "91",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory7",
+            "id": 7,
+            "uniq_id": 91,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node0/socket1/memory7"
+            }
+          }
+        },
+        {
+          "id": "92",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory0",
+            "id": 0,
+            "uniq_id": 92,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/memory0"
+            }
+          }
+        },
+        {
+          "id": "93",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory1",
+            "id": 1,
+            "uniq_id": 93,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/memory1"
+            }
+          }
+        },
+        {
+          "id": "94",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory2",
+            "id": 2,
+            "uniq_id": 94,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/memory2"
+            }
+          }
+        },
+        {
+          "id": "95",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory3",
+            "id": 3,
+            "uniq_id": 95,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket0/memory3"
+            }
+          }
+        },
+        {
+          "id": "96",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory4",
+            "id": 4,
+            "uniq_id": 96,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/memory4"
+            }
+          }
+        },
+        {
+          "id": "97",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory5",
+            "id": 5,
+            "uniq_id": 97,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/memory5"
+            }
+          }
+        },
+        {
+          "id": "98",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory6",
+            "id": 6,
+            "uniq_id": 98,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/memory6"
+            }
+          }
+        },
+        {
+          "id": "99",
+          "metadata": {
+            "type": "memory",
+            "basename": "memory",
+            "name": "memory7",
+            "id": 7,
+            "uniq_id": 99,
+            "rank": -1,
+            "exclusive": false,
+            "unit": "GB",
+            "size": 2,
+            "paths": {
+              "containment": "/tiny0/rack0/node1/socket1/memory7"
+            }
           }
         }
-      },
+      ],
       "edges": [
         {
           "source": "0",
           "target": "1",
-          "relation": "contains",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "1",
           "target": "0",
-          "relation": "in",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "1",
           "target": "2",
-          "relation": "contains",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "1",
+          "target": "3",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "2",
           "target": "1",
-          "relation": "in",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "2",
-          "target": "3",
-          "relation": "contains",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "2",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
           "target": "4",
-          "relation": "contains",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
-          "source": "4",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
+          "source": "2",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "3",
-          "target": "5",
-          "relation": "contains",
-          "metadata": {}
-        },
-        {
-          "source": "5",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
+          "target": "1",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "3",
           "target": "6",
-          "relation": "contains",
-          "metadata": {}
-        },
-        {
-          "source": "6",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "3",
           "target": "7",
-          "relation": "contains",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "2",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "8",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "9",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "10",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "11",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "12",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "13",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "14",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "15",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "16",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "17",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "18",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "19",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "20",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "21",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "22",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "23",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "24",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "25",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "80",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "84",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "85",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "86",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "4",
+          "target": "87",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "2",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "26",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "27",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "28",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "29",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "30",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "31",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "32",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "33",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "34",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "35",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "36",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "37",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "38",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "39",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "40",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "41",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "42",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "43",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "81",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "88",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "89",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "90",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "5",
+          "target": "91",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "3",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "44",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "45",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "46",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "47",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "48",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "49",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "50",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "51",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "52",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "53",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "54",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "55",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "56",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "57",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "58",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "59",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "60",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "61",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "82",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "92",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "93",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "94",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "6",
+          "target": "95",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "7",
           "target": "3",
-          "relation": "in",
-          "metadata": {}
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
-          "source": "3",
-          "target": "8",
-          "relation": "contains",
-          "metadata": {}
+          "source": "7",
+          "target": "62",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "63",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "64",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "65",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "66",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "67",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "68",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "69",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "70",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "71",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "72",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "73",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "74",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "75",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "76",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "77",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "78",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "79",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "83",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "96",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "97",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "98",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
+        },
+        {
+          "source": "7",
+          "target": "99",
+          "metadata": {
+            "name": {
+              "containment": "contains"
+            }
+          }
         },
         {
           "source": "8",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "9",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "9",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "10",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "10",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "11",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "11",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "12",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "12",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "13",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "13",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "14",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "14",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "3",
-          "target": "15",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "15",
-          "target": "3",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "1",
-          "target": "16",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "16",
-          "target": "1",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "16",
-          "target": "17",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "17",
-          "target": "16",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "18",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "18",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "19",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "19",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "20",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "20",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "21",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "21",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "22",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "22",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "23",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "23",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "24",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "24",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "25",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "25",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "26",
-          "relation": "contains",
-          "metadata": {}
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "26",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "27",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "27",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "28",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "28",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "17",
-          "target": "29",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "29",
-          "target": "17",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "1",
-          "target": "30",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "30",
-          "target": "1",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "30",
-          "target": "31",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "31",
-          "target": "30",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "32",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "32",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "33",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "33",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "34",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "34",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "35",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "35",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "36",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "36",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "37",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "37",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "38",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "38",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "39",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "39",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "40",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "40",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "41",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "41",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "42",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "42",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
-        },
-        {
-          "source": "31",
-          "target": "43",
-          "relation": "contains",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         },
         {
           "source": "43",
-          "target": "31",
-          "relation": "in",
-          "metadata": {}
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "44",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "45",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "46",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "47",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "48",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "49",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "50",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "51",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "52",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "53",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "54",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "55",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "56",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "57",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "58",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "59",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "60",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "61",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "62",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "63",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "64",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "65",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "66",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "67",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "68",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "69",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "70",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "71",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "72",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "73",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "74",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "75",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "76",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "77",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "78",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "79",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "80",
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "81",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "82",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "83",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "84",
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "85",
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "86",
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "87",
+          "target": "4",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "88",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "89",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "90",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "91",
+          "target": "5",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "92",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "93",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "94",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "95",
+          "target": "6",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "96",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "97",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "98",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
+        },
+        {
+          "source": "99",
+          "target": "7",
+          "metadata": {
+            "name": {
+              "containment": "in"
+            }
+          }
         }
       ]
-    },
-    "name": "cluster-red"
+    }
   }
