@@ -1,0 +1,20 @@
+{
+  "name": "Fluxion Developer Environment",
+  "dockerFile": "Dockerfile",
+  "context": "../",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+  },
+      "extensions": [
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools-extension-pack",
+        "golang.go",
+        "zxh404.vscode-proto3"
+      ]
+    }
+  },
+  "postStartCommand": "git config --global --add safe.directory /workspaces/fluxion"
+}
