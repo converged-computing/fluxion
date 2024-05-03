@@ -81,12 +81,21 @@ GOOS=linux CGO_CFLAGS="-I/opt/flux-sched -I/opt/flux-sched/resource/reapi/bindin
 [Fluxion] received cancel request jobID:1
 ```
 
-And that's it! 
+And that's it!
+
+### Run the Container
+
+As an alternative, you can run the container service instead.
+
+```bash
+docker run -p 51003 ghcr.io/converged-computing/fluxion --port 51003
+```
+
+More coming soon for how to use the container and Python examples!
 
 ## TODO
 
 - create clients for Python
-- automated container build for server
 - get grow "unpack" bindings into fluxion-go and add update here
 - cute gopher logo!
 - assess use cases for service grpc
