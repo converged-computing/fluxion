@@ -13,9 +13,8 @@ service FluxcliService {
 }
 
 message InitRequest {
-    string clusterName = 1;
-    string policy = 2;
-    string jgf = 3;
+    string policy = 1;
+    string jgf = 2;
 }
 
 message InitResponse {
@@ -29,6 +28,7 @@ message InitResponse {
 
 message ResourceSpec {
     string id = 1;
+    int32 count = 2;
     int32 cpu = 3;
     int64 memory = 4;
     int64 gpu = 5;
@@ -54,6 +54,13 @@ message MatchResponse {
     string podID = 1;
     repeated NodeAlloc nodelist = 2;
     int64 jobID = 3;
+
+    enum ResultType {
+        MATCH_SUCCESS = 0;
+        MATCH_ERROR = 1;
+        MATCH_DENIED = 2;
+    }
+    ResultType status = 4;    
 }
 
 message CancelRequest {
@@ -64,6 +71,14 @@ message CancelRequest {
 message CancelResponse {
     int64 jobID = 1;
     int32 error = 2;
+
+    enum ResultType {
+        CANCEL_SUCCESS = 0;
+        CANCEL_REQUEST_ERROR = 1;
+        CANCEL_ERROR = 2;
+        CANCEL_DENIED = 3;
+    }
+    ResultType status = 3; 
 }
 
 

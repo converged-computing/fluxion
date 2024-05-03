@@ -3,7 +3,9 @@ module github.com/converged-computing/fluxion
 go 1.21
 
 require (
+	github.com/converged-computing/jsongraph-go v0.0.0-20240229082022-c6887a5a00fe
 	github.com/flux-framework/fluxion-go v0.32.1-0.20240420052153-909523c84ca2
+	github.com/pkg/errors v0.9.1
 	google.golang.org/grpc v1.38.0
 	google.golang.org/protobuf v1.26.0
 	gopkg.in/yaml.v2 v2.4.0

@@ -6,6 +6,8 @@ Fluxion is the [flux-sched](https://github.com/flux-framework/flux-sched) projec
 
 🚧️ **under development** 🚧️
 
+## Usage
+
 ### Build
 
 If you have flux-sched locally you can build on your local machine, however it's recommended to use a VS Code developer environment with the included [.devcontainer](.devcontainer) directory. 
@@ -30,7 +32,7 @@ And then build:
 make server
 ```
 
-And run!
+### Run the Server
 
 ```bash
 ./bin/server
@@ -40,13 +42,21 @@ This is the fluxion graph server
 [GRPCServer] gRPC Listening on [::]:4242
 ```
 
+In another terminal you can try one of the client examples in [examples](examples). For example:
+
+```bash
+go run examples/go/example.go
+```
+
 And that's it! 
 
 ## TODO
 
 - create clients for Go/Python
+- automated container build for server
 - example that takes JGF v2 and calls init to the graph database endpoint
 - example that does a satisfy / match allocate
+- remove custom parsing of jobspec and use jobspec-go
 - get grow "unpack" bindings into fluxion-go and add update here
 - cute gopher logo!
 - replace jobspec here with jobspec-go

@@ -34,4 +34,3 @@ protoc: $(LOCALBIN)
 .PHONY: proto
 proto: protoc
 	PATH=$(LOCALBIN):${PATH} protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative pkg/fluxion-grpc/fluxion.proto
-	PATH=$(LOCALBIN):${PATH} protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative pkg/service-grpc/service.proto
