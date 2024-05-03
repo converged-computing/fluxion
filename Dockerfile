@@ -18,7 +18,7 @@ RUN git clone https://github.com/flux-framework/flux-sched.git /opt/flux-sched
 
 # Go dependencies for protobuf
 RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y protobuf-compiler curl && \
-    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26 && \ 
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26 && \
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
 # These need to be on the LD_LIBRARY_PATH for the server to find at runtime

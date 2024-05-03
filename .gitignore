@@ -1,2 +1,5 @@
 vendor
 bin
+.eggs
+__pycache__
+env

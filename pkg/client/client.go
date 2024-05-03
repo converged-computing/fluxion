@@ -15,7 +15,7 @@ import (
 type FluxionClient struct {
 	host       string
 	connection *grpc.ClientConn
-	service    pb.FluxcliServiceClient
+	service    pb.FluxionServiceClient
 }
 
 var _ Client = (*FluxionClient)(nil)
@@ -44,7 +44,7 @@ func NewClient(host string) (Client, error) {
 	}
 
 	c.connection = conn
-	c.service = pb.NewFluxcliServiceClient(conn)
+	c.service = pb.NewFluxionServiceClient(conn)
 	return c, nil
 }
 

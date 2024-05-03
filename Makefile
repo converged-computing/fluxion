@@ -18,19 +18,28 @@ $(LOCALBIN):
 	mkdir -p $(LOCALBIN)
 
 .PHONY: build
-build: 
+build:
 	docker build --build-arg ARCH="amd64" --build-arg RELEASE_VERSION="$(RELEASE_VERSION)" -t $(REGISTRY)/$(IMAGE) .
 
 .PHONY: server
-server: 
-	$(COMMONENVVAR) $(BUILDENVVAR) go build -ldflags '-w' -o bin/server cmd/main.go
+server:
+	$(COMMONENVVAR) $(BUILDENVVAR) go build -ldflags '-w' -o bin/server cmd/server/server.go
 
 .PHONY: protoc
 protoc: $(LOCALBIN)
 	GOBIN=$(LOCALBIN) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
 	GOBIN=$(LOCALBIN) go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
-	
+
 # You can use make protoc to download proto
 .PHONY: proto
 proto: protoc
 	PATH=$(LOCALBIN):${PATH} protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative pkg/fluxion-grpc/fluxion.proto
+
+.PHONY: python
+python: python ## Generate python proto files in python
+	# pip install grpcio-tools
+	# pip freeze | grep grpcio-tools
+	mkdir -p python/v1/fluxion/protos
+	cd python/v1/fluxion/protos
+	python -m grpc_tools.protoc -I./pkg/fluxion-grpc --python_out=./python/v1/fluxion/protos --pyi_out=./python/v1/fluxion/protos --grpc_python_out=./python/v1/fluxion/protos ./pkg/fluxion-grpc/fluxion.proto
+	sed -i 's/import fluxion_pb2 as fluxion__pb2/from . import fluxion_pb2 as fluxion__pb2/' ./python/v1/fluxion/protos/fluxion_pb2_grpc.py

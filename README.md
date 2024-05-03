@@ -1,16 +1,17 @@
 # Fluxion
 
-> Hierarchical Memory Graph Database
+> Hierarchical Memory Graph Database 🕶️
+
+![img/fluxion-banner.jpg](img/fluxion-banner.jpg)
 
 Fluxion is the [flux-sched](https://github.com/flux-framework/flux-sched) project packaged and provided as a containerized graph database. You can interact with it using any language that can interact with the gRPC endpoints. Example and client libraries are provided here.
 
-🚧️ **under development** 🚧️
 
 ## Usage
 
 ### Build
 
-If you have flux-sched locally you can build on your local machine, however it's recommended to use a VS Code developer environment with the included [.devcontainer](.devcontainer) directory. 
+If you have flux-sched locally you can build on your local machine, however it's recommended to use a VS Code developer environment with the included [.devcontainer](.devcontainer) directory.
 
 To build the container:
 
@@ -41,6 +42,8 @@ make server
 This is the fluxion graph server
 [GRPCServer] gRPC Listening on [::]:4242
 ```
+
+### Go Example
 
 In another terminal you can try one of the client examples in [examples](examples). For example:
 
@@ -83,28 +86,53 @@ GOOS=linux CGO_CFLAGS="-I/opt/flux-sched -I/opt/flux-sched/resource/reapi/bindin
 
 And that's it!
 
-### Run the Container
+### Container Example
 
 As an alternative, you can run the container service instead.
 
 ```bash
-docker run -p 51003 ghcr.io/converged-computing/fluxion --port 51003
+docker run -p 4242:4242 ghcr.io/converged-computing/fluxion  --host 0.0.0.0
 ```
 
-More coming soon for how to use the container and Python examples!
+And from a different terminal (make sure you've closed VSCode which sometimes can claim ports).
+
+```bash
+go run examples/go/example.go  --jobspec examples/go/jobspec.yaml
+```
+
+And you will get the same response as above.
+
+### Python Example
+
+Finally, we have the same gRPC endpoints exposed via Python. With the server running:
+
+```bash
+make server && ./bin/server
+```
+
+Run the Python example:
+
+```bash
+python ./examples/python/example.py
+```
+
+Note that the protocol buffers are built (or updated) for Python like:
+
+```bash
+make python
+```
+
+You shouldn't need to run this command unless you change something.
 
 ## TODO
 
-- create clients for Python
 - get grow "unpack" bindings into fluxion-go and add update here
-- cute gopher logo!
-- assess use cases for service grpc
 - when flux-sched supports JGF v2, upgrade here.
 
 ## Thank you
 
 This code is based off of the work done for [fluence](https://github.com/flux-framework/flux-k8s) by the same authors.
-The code base will change significantly with development.
+The code base has changed significantly with development.
 
 ## License
 

@@ -18,160 +18,160 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// FluxcliServiceClient is the client API for FluxcliService service.
+// FluxionServiceClient is the client API for FluxionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FluxcliServiceClient interface {
+type FluxionServiceClient interface {
 	// Sends a Match command
 	Match(ctx context.Context, in *MatchRequest, opts ...grpc.CallOption) (*MatchResponse, error)
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
 	Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error)
 }
 
-type fluxcliServiceClient struct {
+type fluxionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFluxcliServiceClient(cc grpc.ClientConnInterface) FluxcliServiceClient {
-	return &fluxcliServiceClient{cc}
+func NewFluxionServiceClient(cc grpc.ClientConnInterface) FluxionServiceClient {
+	return &fluxionServiceClient{cc}
 }
 
-func (c *fluxcliServiceClient) Match(ctx context.Context, in *MatchRequest, opts ...grpc.CallOption) (*MatchResponse, error) {
+func (c *fluxionServiceClient) Match(ctx context.Context, in *MatchRequest, opts ...grpc.CallOption) (*MatchResponse, error) {
 	out := new(MatchResponse)
-	err := c.cc.Invoke(ctx, "/fluxion.FluxcliService/Match", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Match", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fluxcliServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
+func (c *fluxionServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
 	out := new(CancelResponse)
-	err := c.cc.Invoke(ctx, "/fluxion.FluxcliService/Cancel", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Cancel", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fluxcliServiceClient) Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error) {
+func (c *fluxionServiceClient) Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error) {
 	out := new(InitResponse)
-	err := c.cc.Invoke(ctx, "/fluxion.FluxcliService/Init", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Init", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// FluxcliServiceServer is the server API for FluxcliService service.
-// All implementations must embed UnimplementedFluxcliServiceServer
+// FluxionServiceServer is the server API for FluxionService service.
+// All implementations must embed UnimplementedFluxionServiceServer
 // for forward compatibility
-type FluxcliServiceServer interface {
+type FluxionServiceServer interface {
 	// Sends a Match command
 	Match(context.Context, *MatchRequest) (*MatchResponse, error)
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	Init(context.Context, *InitRequest) (*InitResponse, error)
-	mustEmbedUnimplementedFluxcliServiceServer()
+	mustEmbedUnimplementedFluxionServiceServer()
 }
 
-// UnimplementedFluxcliServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedFluxcliServiceServer struct {
+// UnimplementedFluxionServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedFluxionServiceServer struct {
 }
 
-func (UnimplementedFluxcliServiceServer) Match(context.Context, *MatchRequest) (*MatchResponse, error) {
+func (UnimplementedFluxionServiceServer) Match(context.Context, *MatchRequest) (*MatchResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Match not implemented")
 }
-func (UnimplementedFluxcliServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
+func (UnimplementedFluxionServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Cancel not implemented")
 }
-func (UnimplementedFluxcliServiceServer) Init(context.Context, *InitRequest) (*InitResponse, error) {
+func (UnimplementedFluxionServiceServer) Init(context.Context, *InitRequest) (*InitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Init not implemented")
 }
-func (UnimplementedFluxcliServiceServer) mustEmbedUnimplementedFluxcliServiceServer() {}
+func (UnimplementedFluxionServiceServer) mustEmbedUnimplementedFluxionServiceServer() {}
 
-// UnsafeFluxcliServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FluxcliServiceServer will
+// UnsafeFluxionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FluxionServiceServer will
 // result in compilation errors.
-type UnsafeFluxcliServiceServer interface {
-	mustEmbedUnimplementedFluxcliServiceServer()
+type UnsafeFluxionServiceServer interface {
+	mustEmbedUnimplementedFluxionServiceServer()
 }
 
-func RegisterFluxcliServiceServer(s grpc.ServiceRegistrar, srv FluxcliServiceServer) {
-	s.RegisterService(&FluxcliService_ServiceDesc, srv)
+func RegisterFluxionServiceServer(s grpc.ServiceRegistrar, srv FluxionServiceServer) {
+	s.RegisterService(&FluxionService_ServiceDesc, srv)
 }
 
-func _FluxcliService_Match_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FluxionService_Match_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MatchRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FluxcliServiceServer).Match(ctx, in)
+		return srv.(FluxionServiceServer).Match(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/fluxion.FluxcliService/Match",
+		FullMethod: "/fluxion.FluxionService/Match",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FluxcliServiceServer).Match(ctx, req.(*MatchRequest))
+		return srv.(FluxionServiceServer).Match(ctx, req.(*MatchRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FluxcliService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FluxionService_Cancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CancelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FluxcliServiceServer).Cancel(ctx, in)
+		return srv.(FluxionServiceServer).Cancel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/fluxion.FluxcliService/Cancel",
+		FullMethod: "/fluxion.FluxionService/Cancel",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FluxcliServiceServer).Cancel(ctx, req.(*CancelRequest))
+		return srv.(FluxionServiceServer).Cancel(ctx, req.(*CancelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FluxcliService_Init_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FluxionService_Init_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(InitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FluxcliServiceServer).Init(ctx, in)
+		return srv.(FluxionServiceServer).Init(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/fluxion.FluxcliService/Init",
+		FullMethod: "/fluxion.FluxionService/Init",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FluxcliServiceServer).Init(ctx, req.(*InitRequest))
+		return srv.(FluxionServiceServer).Init(ctx, req.(*InitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// FluxcliService_ServiceDesc is the grpc.ServiceDesc for FluxcliService service.
+// FluxionService_ServiceDesc is the grpc.ServiceDesc for FluxionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var FluxcliService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "fluxion.FluxcliService",
-	HandlerType: (*FluxcliServiceServer)(nil),
+var FluxionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fluxion.FluxionService",
+	HandlerType: (*FluxionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Match",
-			Handler:    _FluxcliService_Match_Handler,
+			Handler:    _FluxionService_Match_Handler,
 		},
 		{
 			MethodName: "Cancel",
-			Handler:    _FluxcliService_Cancel_Handler,
+			Handler:    _FluxionService_Cancel_Handler,
 		},
 		{
 			MethodName: "Init",
-			Handler:    _FluxcliService_Init_Handler,
+			Handler:    _FluxionService_Init_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
