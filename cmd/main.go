@@ -16,6 +16,7 @@ import (
 
 const (
 	defaultPort = "4242"
+	defaultHost = ""
 )
 
 var responsechan chan string
@@ -23,15 +24,18 @@ var responsechan chan string
 func main() {
 	fmt.Println("🦩️ This is the fluxion graph server")
 	grpcPort := flag.String("port", defaultPort, "Port for grpc service")
+	grpcHost := flag.String("host", defaultHost, "Host for grpc service")
 	flag.Parse()
 
 	// Ensure our port starts with :
 	port := *grpcPort
+	host := *grpcHost
 	if !strings.HasPrefix(":", port) {
 		port = fmt.Sprintf(":%s", port)
 	}
 
-	lis, err := net.Listen("tcp", port)
+	address := fmt.Sprintf("%s%s", host, port)
+	lis, err := net.Listen("tcp", address)
 	if err != nil {
 		fmt.Printf("[GRPCServer] failed to listen: %v\n", err)
 	}

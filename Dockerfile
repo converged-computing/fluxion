@@ -23,7 +23,6 @@ RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y pr
 
 # These need to be on the LD_LIBRARY_PATH for the server to find at runtime
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib:/usr/lib/flux
-WORKDIR /go/src/fluence/
 WORKDIR /code
 COPY . /code
 
@@ -32,3 +31,8 @@ RUN go mod tidy && \
     make server FLUX_SCHED_ROOT=/opt/flux-sched && \
     mkdir -p /home/data/jobspecs /home/data/jgf && \
     chmod -R ugo+rwx /home/data
+
+RUN make server
+EXPOSE 51003
+EXPOSE 4242
+ENTRYPOINT ["/code/bin/server"]
