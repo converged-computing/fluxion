@@ -2,13 +2,10 @@ package fluxion
 
 import (
 	"fmt"
-	"os"
 	"strings"
 
 	pb "github.com/converged-computing/fluxion/pkg/fluxion-grpc"
-	"github.com/converged-computing/fluxion/pkg/jobspec"
 	"github.com/flux-framework/fluxion-go/pkg/fluxcli"
-	"k8s.io/klog/v2"
 
 	"context"
 	"errors"
@@ -64,101 +61,65 @@ func (f *Fluxion) ShowError() {
 // Cancel wraps the Cancel function of the fluxion go bindings
 func (s *Fluxion) Cancel(ctx context.Context, in *pb.CancelRequest) (*pb.CancelResponse, error) {
 
-	klog.Infof("[Fluxion] received cancel request %v\n", in)
-	err := s.cli.Cancel(int64(in.JobID), true)
+	response := pb.CancelResponse{}
+	fmt.Printf("[Fluxion] received cancel request %v\n", in)
+	err := s.cli.Cancel(in.JobID, true)
 	if err != nil {
-		return nil, errors.New("Error in Cancel")
+		fmt.Printf("[Fluxion] issue with cancel %s\n", err)
+		response.Status = pb.CancelResponse_CANCEL_ERROR
+		return &response, err
 	}
-
-	// Why would we have an error code here if we check above?
-	// This (I think) should be an error code for the specific job
-	dr := &pb.CancelResponse{JobID: in.JobID}
-	klog.Infof("[Fluxion] sending cancel response %v\n", dr)
-	klog.Infof("[Fluxion] cancel errors so far: %s\n", s.cli.GetErrMsg())
-
-	reserved, at, overhead, mode, fluxerr := s.cli.Info(int64(in.JobID))
-	klog.Infof("\n\t----Job Info output---")
-	klog.Infof("jobid: %d\nreserved: %t\nat: %d\noverhead: %f\nmode: %s\nerror: %d\n", in.JobID, reserved, at, overhead, mode, fluxerr)
-
-	klog.Infof("[GRPCServer] Sending Cancel response %v\n", dr)
-	return dr, nil
-}
-
-// generateJobSpec generates a jobspec for a match request and returns the string
-// TODO this should be updated to use jobspec-go, and not need a special
-// library here
-func (s *Fluxion) generateJobspec(in *pb.MatchRequest) ([]byte, error) {
-
-	spec := []byte{}
-
-	// Create a temporary file to write and read the jobspec
-	// The first parameter here as the empty string creates in /tmp
-	file, err := os.CreateTemp("", "jobspec.*.yaml")
-	if err != nil {
-		return spec, err
-	}
-	defer os.Remove(file.Name())
-	jobspec.CreateJobSpecYaml(in.Resources, in.Count, file.Name())
-
-	spec, err = os.ReadFile(file.Name())
-	if err != nil {
-		return spec, errors.New("Error reading jobspec")
-	}
-	return spec, err
+	response.Status = pb.CancelResponse_CANCEL_SUCCESS
+	return &response, err
 }
 
 // Match wraps the MatchAllocate function of the fluxion go bindings
 // If a match is not possible, we return the error and an empty response
 func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResponse, error) {
 
-	emptyResponse := &pb.MatchResponse{}
-
-	// Prepare an empty match response (that can still be serialized)
-	klog.Infof("[Fluxion] Received Match request %v\n", in)
-
-	// Generate the jobspec, written to temporary file and read as string
-	spec, err := s.generateJobspec(in)
-	if err != nil {
-		return emptyResponse, err
-	}
+	response := &pb.MatchResponse{Status: pb.MatchResponse_MATCH_ERROR}
 
 	// Ask flux to match allocate!
-	reserved, allocated, at, overhead, jobid, fluxerr := s.cli.MatchAllocate(false, string(spec))
-
-	// TODO get rid of this or refactor
-	printOutput(reserved, allocated, at, overhead, jobid, fluxerr)
+	reserved, allocated, at, overhead, jobid, fluxerr := s.cli.MatchAllocate(false, in.Jobspec)
 
 	// Be explicit about errors (or not)
 	errorMessages := s.cli.GetErrMsg()
 	if errorMessages == "" {
-		klog.Infof("[Fluxion] There are no errors")
+		fmt.Println("[Fluxion] There are no errors")
 	} else {
-		klog.Infof("[Fluxion] Match errors so far: %s\n", errorMessages)
+		fmt.Println("[Fluxion] Match errors so far: %s\n", errorMessages)
 	}
 	if fluxerr != nil {
-		klog.Infof("[Fluxion] Match Flux err is %w\n", fluxerr)
-		return emptyResponse, errors.New("[Fluxion] Error in ReapiCliMatchAllocate")
+		fmt.Println("[Fluxion] Match Flux err is %w\n", fluxerr)
+		return response, errors.New("[Fluxion] Error in ReapiCliMatchAllocate")
 	}
 
 	// This usually means we cannot allocate
 	// We need to return an error here otherwise we try to pass an empty string
 	// to other RPC endpoints and get back an error.
 	if allocated == "" {
-		klog.Infof("[Fluxion] Allocated is empty")
-		return emptyResponse, errors.New("Allocation was not possible")
+		fmt.Printf("[Fluxion] Allocated is empty")
+		return response, errors.New("Allocation was not possible")
 	}
 
-	// Pass the spec name in so we can include it in the allocation result
-	// This will allow us to inspect the ordering later.
-	nodetasks := parseAllocResult(allocated)
-	nodetaskslist := make([]*pb.NodeAlloc, len(nodetasks))
-	for i, result := range nodetasks {
-		nodetaskslist[i] = &pb.NodeAlloc{
-			NodeID: result.Basename,
-			Tasks:  int32(result.CoreCount) / in.Resources.Cpu,
-		}
-	}
-	mr := &pb.MatchResponse{PodID: in.Resources.Id, Nodelist: nodetaskslist, JobID: int64(jobid)}
-	klog.Infof("[Fluxion] Match response %v \n", mr)
-	return mr, nil
+	// Return the raw match response - this could be better parsed
+	response.Status = pb.MatchResponse_MATCH_SUCCESS
+	response.Allocation = allocated
+	response.Jobid = int64(jobid)
+	response.Reserved = reserved
+	response.At = at
+	response.Overhead = float32(overhead)
+	printAllocation(response)
+	return response, nil
+}
+
+// printAllocation result shows the result on the server side
+func printAllocation(response *pb.MatchResponse) {
+	fmt.Println("\n💼️ Allocation Result")
+	fmt.Printf("       Overhead: %f\n", response.Overhead)
+	fmt.Printf("       Reserved: %t\n", response.Reserved)
+	fmt.Printf("         Status: %s\n", response.Status)
+	fmt.Printf("          Jobid: %d\n", response.Jobid)
+	fmt.Printf("             At: %d\n", response.At)
+	fmt.Printf("     Allocation: %s\n", response.Allocation)
 }

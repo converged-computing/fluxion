@@ -24,34 +24,12 @@ func (c *FluxionClient) Match(ctx context.Context, in *pb.MatchRequest, opts ...
 	ctx, cancel := context.WithTimeout(ctx, time.Second)
 	defer cancel()
 
-	request := &pb.MatchRequest{
-		Resources: in.Resources,
-		Request:   in.Request,
-		Count:     in.Resources.Count,
-	}
-
 	// An error here is an error with making the request
-	r, err := c.service.Match(context.Background(), request)
+	response, err := c.service.Match(ctx, in)
 	if err != nil {
 		fmt.Printf("[Match] did not receive any match response: %v\n", err)
 		return response, err
 	}
-
-	fmt.Printf("[Match] Match response ID %s\n", r.GetPodID())
-
-	// Get the nodelist and inspect
-	nodelist := r.GetNodelist()
-
-	// Show list of nodes to user
-	nodes := []string{}
-	for _, node := range nodelist {
-		nodes = append(nodes, node.NodeID)
-	}
-	jobid := uint64(r.GetJobID())
-	fmt.Printf("[Match] parsed node pods list %s for job id %d\n", nodes, jobid)
-
-	response.Nodelist = nodelist
-	response.JobID = int64(jobid)
 	return response, err
 }
 
@@ -67,15 +45,14 @@ func (c *FluxionClient) Cancel(ctx context.Context, in *pb.CancelRequest, opts .
 	defer cancel()
 
 	// This error reflects the success or failure of the cancel request
-	request := &pb.CancelRequest{JobID: in.JobID}
-	res, err := c.service.Cancel(context.Background(), request)
+	res, err := c.service.Cancel(ctx, in)
 	if err != nil {
 		response.Status = pb.CancelResponse_CANCEL_REQUEST_ERROR
 		return response, err
 	}
 
 	// And this error is if the cancel was successful or not
-	if res.Error == 0 {
+	if res.Error != 0 {
 		response.Status = pb.CancelResponse_CANCEL_ERROR
 		return response, err
 	}
