@@ -13,7 +13,7 @@ import (
 
 type Fluxion struct {
 	cli *fluxcli.ReapiClient
-	pb.UnimplementedFluxcliServiceServer
+	pb.UnimplementedFluxionServiceServer
 }
 
 // Init creates a new client to interaction with the fluxion API

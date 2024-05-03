@@ -49,7 +49,7 @@ func main() {
 			MaxConnectionIdle: 5 * time.Minute,
 		}),
 	)
-	pb.RegisterFluxcliServiceServer(s, &flux)
+	pb.RegisterFluxionServiceServer(s, &flux)
 	fmt.Printf("[GRPCServer] gRPC Listening on %s\n", lis.Addr().String())
 	if err := s.Serve(lis); err != nil {
 		fmt.Printf("[GRPCServer] failed to serve: %v\n", err)

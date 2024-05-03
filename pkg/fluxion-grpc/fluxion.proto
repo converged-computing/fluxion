@@ -5,7 +5,7 @@ option go_package = "github.com/converged-computing/fluxion/pkg/fluxion-grpc";
 package fluxion;
 
 // Service definition for Fluxclient
-service FluxcliService {
+service FluxionService {
     // Sends a Match command
     rpc Match(MatchRequest) returns (MatchResponse) {}
     rpc Cancel(CancelRequest) returns (CancelResponse) {}
@@ -45,7 +45,7 @@ message MatchResponse {
         MATCH_ERROR = 1;
         MATCH_DENIED = 2;
     }
-    ResultType status = 6;    
+    ResultType status = 6;
 }
 
 message CancelRequest {
@@ -63,7 +63,5 @@ message CancelResponse {
         CANCEL_ERROR = 2;
         CANCEL_DENIED = 3;
     }
-    ResultType status = 3; 
+    ResultType status = 3;
 }
-
-

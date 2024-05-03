@@ -27,9 +27,11 @@ RUN flux keygen
 RUN git clone https://github.com/flux-framework/flux-sched.git /opt/flux-sched
 
 # Go dependencies for protobuf
-RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y protobuf-compiler curl && \
-    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26 && \ 
-    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
+RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y protobuf-compiler python3-pip python3-venv curl && \
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26 && \
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1 && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    python3 -m pip install grpcio-tools
 
 # These need to be on the LD_LIBRARY_PATH for the server to find at runtime
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib:/usr/lib/flux
