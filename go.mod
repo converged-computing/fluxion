@@ -1,6 +1,6 @@
 module github.com/converged-computing/fluxion
 
-go 1.21
+go 1.22
 
 require (
 	github.com/converged-computing/jsongraph-go v0.0.0-20240229082022-c6887a5a00fe

@@ -80,7 +80,7 @@ func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResp
 	response := &pb.MatchResponse{Status: pb.MatchResponse_MATCH_ERROR}
 
 	// Ask flux to match allocate!
-	reserved, allocated, at, overhead, jobid, fluxerr := s.cli.MatchAllocate(false, in.Jobspec)
+	reserved, allocated, at, overhead, jobid, fluxerr := s.cli.MatchAllocate(in.Reservation, in.Jobspec)
 
 	// Be explicit about errors (or not)
 	errorMessages := s.cli.GetErrMsg()

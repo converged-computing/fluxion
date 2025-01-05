@@ -2,7 +2,7 @@ FROM fluxrm/flux-sched:jammy
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
-ENV GO_VERSION=1.21.9
+ENV GO_VERSION=1.22.6
 
 RUN apt-get update && apt-get clean -y && apt -y autoremove
 
@@ -22,7 +22,7 @@ RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y pr
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
 # These need to be on the LD_LIBRARY_PATH for the server to find at runtime
-ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib:/usr/lib/flux
+ENV LD_LIBRARY_PATH=/usr/lib:/usr/lib/flux
 WORKDIR /code
 COPY . /code
 

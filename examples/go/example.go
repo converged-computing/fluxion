@@ -77,7 +77,7 @@ func main() {
 
 	// Step 2: do a match!
 	// Default Request here is "allocate"
-	matchRequest := &pb.MatchRequest{Jobspec: jobspecText, Count: 1}
+	matchRequest := &pb.MatchRequest{Jobspec: jobspecText}
 	matchResponse, err := c.Match(ctx, matchRequest)
 	if err != nil {
 		log.Fatalf("Issue with match request: %s", err)

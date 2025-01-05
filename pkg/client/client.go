@@ -25,6 +25,11 @@ type Client interface {
 	Match(ctx context.Context, in *pb.MatchRequest, opts ...grpc.CallOption) (*pb.MatchResponse, error)
 	Cancel(ctx context.Context, in *pb.CancelRequest, opts ...grpc.CallOption) (*pb.CancelResponse, error)
 	Init(ctx context.Context, in *pb.InitRequest, opts ...grpc.CallOption) (*pb.InitResponse, error)
+
+	// Functions that aren't related to fluxion directly
+	Close() error
+	GetHost() string
+	Connected() bool
 }
 
 // NewClient creates a new FluxionClient
