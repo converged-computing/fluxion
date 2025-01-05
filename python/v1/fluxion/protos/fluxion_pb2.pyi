@@ -28,14 +28,14 @@ class InitResponse(_message.Message):
     def __init__(self, status: _Optional[_Union[InitResponse.ResultType, str]] = ...) -> None: ...
 
 class MatchRequest(_message.Message):
-    __slots__ = ("jobspec", "request", "count")
+    __slots__ = ("jobspec", "request", "reservation")
     JOBSPEC_FIELD_NUMBER: _ClassVar[int]
     REQUEST_FIELD_NUMBER: _ClassVar[int]
-    COUNT_FIELD_NUMBER: _ClassVar[int]
+    RESERVATION_FIELD_NUMBER: _ClassVar[int]
     jobspec: str
     request: str
-    count: int
-    def __init__(self, jobspec: _Optional[str] = ..., request: _Optional[str] = ..., count: _Optional[int] = ...) -> None: ...
+    reservation: bool
+    def __init__(self, jobspec: _Optional[str] = ..., request: _Optional[str] = ..., reservation: bool = ...) -> None: ...
 
 class MatchResponse(_message.Message):
     __slots__ = ("allocation", "jobid", "reserved", "at", "overhead", "status")

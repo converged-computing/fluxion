@@ -30,6 +30,7 @@ message InitResponse {
 message MatchRequest {
     string jobspec = 1;
     string request = 2;
+    bool reservation = 3;
 }
 
 // The Match response message
