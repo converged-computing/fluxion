@@ -22,10 +22,11 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FluxionServiceClient interface {
-	// Sends a Match command
 	Match(ctx context.Context, in *MatchRequest, opts ...grpc.CallOption) (*MatchResponse, error)
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
 	Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error)
+	Grow(ctx context.Context, in *GrowRequest, opts ...grpc.CallOption) (*GrowResponse, error)
+	Shrink(ctx context.Context, in *ShrinkRequest, opts ...grpc.CallOption) (*ShrinkResponse, error)
 }
 
 type fluxionServiceClient struct {
@@ -63,14 +64,33 @@ func (c *fluxionServiceClient) Init(ctx context.Context, in *InitRequest, opts .
 	return out, nil
 }
 
+func (c *fluxionServiceClient) Grow(ctx context.Context, in *GrowRequest, opts ...grpc.CallOption) (*GrowResponse, error) {
+	out := new(GrowResponse)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Grow", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fluxionServiceClient) Shrink(ctx context.Context, in *ShrinkRequest, opts ...grpc.CallOption) (*ShrinkResponse, error) {
+	out := new(ShrinkResponse)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Shrink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FluxionServiceServer is the server API for FluxionService service.
 // All implementations must embed UnimplementedFluxionServiceServer
 // for forward compatibility
 type FluxionServiceServer interface {
-	// Sends a Match command
 	Match(context.Context, *MatchRequest) (*MatchResponse, error)
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
 	Init(context.Context, *InitRequest) (*InitResponse, error)
+	Grow(context.Context, *GrowRequest) (*GrowResponse, error)
+	Shrink(context.Context, *ShrinkRequest) (*ShrinkResponse, error)
 	mustEmbedUnimplementedFluxionServiceServer()
 }
 
@@ -86,6 +106,12 @@ func (UnimplementedFluxionServiceServer) Cancel(context.Context, *CancelRequest)
 }
 func (UnimplementedFluxionServiceServer) Init(context.Context, *InitRequest) (*InitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Init not implemented")
+}
+func (UnimplementedFluxionServiceServer) Grow(context.Context, *GrowRequest) (*GrowResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Grow not implemented")
+}
+func (UnimplementedFluxionServiceServer) Shrink(context.Context, *ShrinkRequest) (*ShrinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Shrink not implemented")
 }
 func (UnimplementedFluxionServiceServer) mustEmbedUnimplementedFluxionServiceServer() {}
 
@@ -154,6 +180,42 @@ func _FluxionService_Init_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FluxionService_Grow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GrowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FluxionServiceServer).Grow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fluxion.FluxionService/Grow",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FluxionServiceServer).Grow(ctx, req.(*GrowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FluxionService_Shrink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShrinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FluxionServiceServer).Shrink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fluxion.FluxionService/Shrink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FluxionServiceServer).Shrink(ctx, req.(*ShrinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FluxionService_ServiceDesc is the grpc.ServiceDesc for FluxionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -172,6 +234,14 @@ var FluxionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Init",
 			Handler:    _FluxionService_Init_Handler,
+		},
+		{
+			MethodName: "Grow",
+			Handler:    _FluxionService_Grow_Handler,
+		},
+		{
+			MethodName: "Shrink",
+			Handler:    _FluxionService_Shrink_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -1,4 +1,4 @@
-FROM fluxrm/flux-sched:jammy
+FROM fluxrm/flux-sched:noble
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,7 +14,13 @@ RUN wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz  && tar -xvf go${G
 # ENV GOPATH=/go
 ENV PATH=/usr/local/go/bin:$PATH
 RUN flux keygen
-RUN git clone https://github.com/flux-framework/flux-sched.git /opt/flux-sched
+RUN git clone -b grow-api https://github.com/milroy/flux-sched.git /opt/flux-sched
+
+# TODO remove this after branch above merged
+RUN cd /opt/flux-sched && \
+    cmake -B build && \
+    make -C build && \
+    make -C build install
 
 # Go dependencies for protobuf
 RUN apt -y update && apt -y upgrade && apt install --no-install-recommends -y protobuf-compiler curl && \

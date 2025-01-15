@@ -6,10 +6,11 @@ package fluxion;
 
 // Service definition for Fluxclient
 service FluxionService {
-    // Sends a Match command
     rpc Match(MatchRequest) returns (MatchResponse) {}
     rpc Cancel(CancelRequest) returns (CancelResponse) {}
     rpc Init(InitRequest) returns (InitResponse) {}
+    rpc Grow(GrowRequest) returns (GrowResponse) {}
+    rpc Shrink(ShrinkRequest) returns (ShrinkResponse) {}
 }
 
 message InitRequest {
@@ -47,6 +48,33 @@ message MatchResponse {
     }
     ResultType status = 6;
 }
+
+message GrowRequest {
+    string jgf = 1;
+}
+
+// The Match response message
+message GrowResponse {
+    enum ResultType {
+        GROW_SUCCESS = 0;
+        GROW_ERROR = 1;
+    }
+    ResultType status = 1;
+}
+
+message ShrinkRequest {
+    repeated string nodepaths = 1;
+}
+
+// The Match response message
+message ShrinkResponse {
+    enum ResultType {
+        SHRINK_SUCCESS = 0;
+        SHRINK_ERROR = 1;
+    }
+    ResultType status = 1;
+}
+
 
 message CancelRequest {
     int64 jobID = 2;

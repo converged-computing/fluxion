@@ -113,6 +113,40 @@ func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResp
 	return response, nil
 }
 
+// Grow the resource graph
+func (s *Fluxion) Grow(ctx context.Context, in *pb.GrowRequest) (*pb.GrowResponse, error) {
+	response := &pb.GrowResponse{Status: pb.GrowResponse_GROW_ERROR}
+
+	// Ask flux to match allocate!
+	err := s.cli.Grow(in.Jgf)
+
+	// Be explicit about errors (or not)
+	errorMessages := s.cli.GetErrMsg()
+	if errorMessages == "" {
+		fmt.Println("[Fluxion] There are no errors")
+		response.Status = pb.GrowResponse_GROW_SUCCESS
+	} else {
+		fmt.Println("[Fluxion] Grow errors so far: %s\n", errorMessages)
+	}
+	return response, err
+}
+
+// Shrink the resource graph
+func (s *Fluxion) Shrink(ctx context.Context, in *pb.ShrinkRequest) (*pb.ShrinkResponse, error) {
+	response := &pb.ShrinkResponse{Status: pb.ShrinkResponse_SHRINK_ERROR}
+
+	// Ask flux to match allocate!
+	for _, nodePath := range in.Nodepaths {
+		err := s.cli.Shrink(nodePath)
+		if err != nil {
+			fmt.Println("[Fluxion] Shrink errors so far: %s\n", s.cli.GetErrMsg())
+			return response, err
+		}
+	}
+	response.Status = pb.ShrinkResponse_SHRINK_SUCCESS
+	return response, nil
+}
+
 // printAllocation result shows the result on the server side
 func printAllocation(response *pb.MatchResponse) {
 	fmt.Println("\n💼️ Allocation Result")
