@@ -17,6 +17,9 @@ To build the container:
 
 ```bash
 make build
+
+# Customize the container name
+make build IMAGE=fluxion:grow-api
 ```
 
 If you are developing from inside the container:
