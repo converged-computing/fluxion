@@ -6,9 +6,9 @@ LOCALBIN ?= $(shell pwd)/bin
 COMMONENVVAR=GOOS=$(shell uname -s | tr A-Z a-z)
 BUILDENVVAR=CGO_CFLAGS="-I${FLUX_SCHED_ROOT} -I${FLUX_SCHED_ROOT}/resource/reapi/bindings/c" CGO_LDFLAGS="-L${LIB_PREFIX} -L${LIB_PREFIX}/flux -L${FLUX_SCHED_ROOT}/resource/reapi/bindings -lreapi_cli -lflux-idset -lstdc++ -ljansson -lhwloc -lflux-hostlist -lboost_graph -lyaml-cpp"
 
-REGISTRY=ghcr.io/converged-computing
-IMAGE=fluxion:latest
-RELEASE_VERSION?=v$(shell date +%Y%m%d)-$(shell git describe --tags --match "v*")
+REGISTRY ?= ghcr.io/converged-computing
+IMAGE ?= fluxion:latest
+RELEASE_VERSION ?= v$(shell date +%Y%m%d)-$(shell git describe --tags --match "v*")
 
 .PHONY: all
 all: build

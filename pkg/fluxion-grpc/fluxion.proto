@@ -9,6 +9,7 @@ service FluxionService {
     // Sends a Match command
     rpc Match(MatchRequest) returns (MatchResponse) {}
     rpc Cancel(CancelRequest) returns (CancelResponse) {}
+    rpc Satisfy(SatisfyRequest) returns (SatisfyResponse) {}
     rpc Init(InitRequest) returns (InitResponse) {}
 }
 
@@ -29,8 +30,7 @@ message InitResponse {
 // The Match request message (allocate, allocate_orelse_reserve)
 message MatchRequest {
     string jobspec = 1;
-    string request = 2;
-    bool reservation = 3;
+    bool reservation = 2;
 }
 
 // The Match response message
@@ -44,6 +44,26 @@ message MatchResponse {
         MATCH_SUCCESS = 0;
         MATCH_ERROR = 1;
         MATCH_DENIED = 2;
+    }
+    ResultType status = 6;
+}
+
+// The Satisfy request makes a satisfy request to fluxion
+message SatisfyRequest {
+    string jobspec = 1;
+    bool reservation = 2;
+}
+
+message SatisfyResponse {
+    string allocation = 1;
+    int64 jobid = 2;
+    bool reserved = 3;
+    int64 at = 4;
+    float overhead = 5;
+    enum ResultType {
+        SATISFY_SUCCESS = 0;
+        SATISFY_ERROR = 1;
+        SATISFY_DENIED = 2;
     }
     ResultType status = 6;
 }

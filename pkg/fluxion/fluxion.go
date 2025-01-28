@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/flux-framework/fluxion-go/pkg/types"
 	pb "github.com/converged-computing/fluxion/pkg/fluxion-grpc"
 	"github.com/flux-framework/fluxion-go/pkg/fluxcli"
 
@@ -84,9 +85,7 @@ func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResp
 
 	// Be explicit about errors (or not)
 	errorMessages := s.cli.GetErrMsg()
-	if errorMessages == "" {
-		fmt.Println("[Fluxion] There are no errors")
-	} else {
+	if errorMessages != "" {
 		fmt.Println("[Fluxion] Match errors so far: %s\n", errorMessages)
 	}
 	if fluxerr != nil {
@@ -109,13 +108,53 @@ func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResp
 	response.Reserved = reserved
 	response.At = at
 	response.Overhead = float32(overhead)
-	printAllocation(response)
+	printMatch(response)
 	return response, nil
 }
 
-// printAllocation result shows the result on the server side
-func printAllocation(response *pb.MatchResponse) {
-	fmt.Println("\n💼️ Allocation Result")
+// Satisfy wraps the MatchSatisfiability fluxion endpoint
+func (s *Fluxion) Satisfy(ctx context.Context, in *pb.SatisfyRequest) (*pb.SatisfyResponse, error) {
+
+	response := &pb.SatisfyResponse{Status: pb.SatisfyResponse_SATISFY_ERROR}
+	reserved, allocated, at, overhead, jobid, fluxerr := s.cli.Match(types.MatchSatisfiability, in.Jobspec)
+
+	// Be explicit about errors (or not)
+	errorMessages := s.cli.GetErrMsg()
+	if errorMessages != "" {
+		fmt.Println("[Fluxion] Satisfy errors so far: %s\n", errorMessages)
+	}
+	if fluxerr != nil {
+		fmt.Println("[Fluxion] Satisfy Flux err is %w\n", fluxerr)
+		return response, errors.New("[Fluxion] Error in ReapiCliMatchSatisfy")
+	}
+	if allocated == "" {
+		fmt.Printf("[Fluxion] Allocated is empty")
+		return response, errors.New("Allocation for satisfy was not possible")
+	}
+
+	// Return the raw match response - this could be better parsed
+	response.Status = pb.SatisfyResponse_SATISFY_SUCCESS
+	response.Allocation = allocated
+	response.Jobid = int64(jobid)
+	response.Reserved = reserved
+	response.At = at
+	response.Overhead = float32(overhead)
+	printSatisfy(response)
+	return response, nil
+}
+
+func printMatch(response *pb.MatchResponse) {
+	fmt.Println("\n💼️ Allocation Match Result")
+	fmt.Printf("       Overhead: %f\n", response.Overhead)
+	fmt.Printf("       Reserved: %t\n", response.Reserved)
+	fmt.Printf("         Status: %s\n", response.Status)
+	fmt.Printf("          Jobid: %d\n", response.Jobid)
+	fmt.Printf("             At: %d\n", response.At)
+	fmt.Printf("     Allocation: %s\n", response.Allocation)
+}
+
+func printSatisfy(response *pb.SatisfyResponse) {
+	fmt.Println("\n💼️ Allocation Satisfy Result")
 	fmt.Printf("       Overhead: %f\n", response.Overhead)
 	fmt.Printf("       Reserved: %t\n", response.Reserved)
 	fmt.Printf("         Status: %s\n", response.Status)
