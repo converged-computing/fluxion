@@ -23,6 +23,7 @@ var _ Client = (*FluxionClient)(nil)
 // Client interface defines functions required for a valid client
 type Client interface {
 	Match(ctx context.Context, in *pb.MatchRequest, opts ...grpc.CallOption) (*pb.MatchResponse, error)
+	Satisfy(ctx context.Context, in *pb.SatisfyRequest, opts ...grpc.CallOption) (*pb.SatisfyResponse, error)
 	Cancel(ctx context.Context, in *pb.CancelRequest, opts ...grpc.CallOption) (*pb.CancelResponse, error)
 	Init(ctx context.Context, in *pb.InitRequest, opts ...grpc.CallOption) (*pb.InitResponse, error)
 

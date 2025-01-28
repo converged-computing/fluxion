@@ -15,12 +15,6 @@ func (c *FluxionClient) Match(ctx context.Context, in *pb.MatchRequest, opts ...
 	if !c.Connected() {
 		return response, errors.New("client is not connected")
 	}
-
-	// If no request type provided, assume allocate
-	if in.Request == "" {
-		in.Request = "allocate"
-	}
-	// Now contact the rainbow server with clusters...
 	ctx, cancel := context.WithTimeout(ctx, time.Second)
 	defer cancel()
 
@@ -32,6 +26,25 @@ func (c *FluxionClient) Match(ctx context.Context, in *pb.MatchRequest, opts ...
 	}
 	return response, err
 }
+
+// Satisfy request for resources
+func (c *FluxionClient) Satisfy(ctx context.Context, in *pb.SatisfyRequest, opts ...grpc.CallOption) (*pb.SatisfyResponse, error) {
+	response := &pb.SatisfyResponse{}
+	if !c.Connected() {
+		return response, errors.New("client is not connected")
+	}
+	ctx, cancel := context.WithTimeout(ctx, time.Second)
+	defer cancel()
+
+	// An error here is an error with making the request
+	response, err := c.service.Satisfy(ctx, in)
+	if err != nil {
+		fmt.Printf("[Satisfy] did not receive response: %v\n", err)
+		return response, err
+	}
+	return response, err
+}
+
 
 // Cancel a job
 func (c *FluxionClient) Cancel(ctx context.Context, in *pb.CancelRequest, opts ...grpc.CallOption) (*pb.CancelResponse, error) {
