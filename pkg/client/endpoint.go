@@ -45,7 +45,6 @@ func (c *FluxionClient) Satisfy(ctx context.Context, in *pb.SatisfyRequest, opts
 	return response, err
 }
 
-
 // Cancel a job
 func (c *FluxionClient) Cancel(ctx context.Context, in *pb.CancelRequest, opts ...grpc.CallOption) (*pb.CancelResponse, error) {
 

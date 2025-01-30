@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/flux-framework/fluxion-go/pkg/types"
 	pb "github.com/converged-computing/fluxion/pkg/fluxion-grpc"
 	"github.com/flux-framework/fluxion-go/pkg/fluxcli"
+	"github.com/flux-framework/fluxion-go/pkg/types"
 
 	"context"
 	"errors"
@@ -89,7 +89,7 @@ func (s *Fluxion) Match(ctx context.Context, in *pb.MatchRequest) (*pb.MatchResp
 		fmt.Println("[Fluxion] Match errors so far: %s\n", errorMessages)
 	}
 	if fluxerr != nil {
-		fmt.Println("[Fluxion] Match Flux err is %w\n", fluxerr)
+		fmt.Printf("[Fluxion] Match Flux err is %s\n", fluxerr)
 		return response, errors.New("[Fluxion] Error in ReapiCliMatchAllocate")
 	}
 
@@ -124,8 +124,8 @@ func (s *Fluxion) Satisfy(ctx context.Context, in *pb.SatisfyRequest) (*pb.Satis
 		fmt.Println("[Fluxion] Satisfy errors so far: %s\n", errorMessages)
 	}
 	if fluxerr != nil {
-		fmt.Println("[Fluxion] Satisfy Flux err is %w\n", fluxerr)
-		return response, errors.New("[Fluxion] Error in ReapiCliMatchSatisfy")
+		fmt.Printf("[Fluxion] Satisfy Flux err is %s\n", fluxerr)
+		return response, errors.New("[Fluxion] Error in MatchSatisfy")
 	}
 	if allocated == "" {
 		fmt.Printf("[Fluxion] Allocated is empty")
