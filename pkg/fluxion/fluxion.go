@@ -24,18 +24,12 @@ func (f *Fluxion) Init(ctx context.Context, in *pb.InitRequest) (*pb.InitRespons
 	response := pb.InitResponse{}
 	fmt.Printf("[Fluxion] Created flux memory graph")
 
-	// Note that we currently take in JGF version 2, and convert to v1 here for flux.
-	// gv1, err := createJGF(in.Jgf)
+	// Update policy if set
 	policyRequest := "{}"
 	if in.Policy != "" {
 		policyRequest = string("{\"matcher_policy\": \"" + in.Policy + "\"}")
 		fmt.Printf("[Fluxion] match policy: %s", policyRequest)
 	}
-
-	// Dump the jgf version 1 into a string for flux
-	// raw, err := json.Marshal(gv1)
-	// out := string(raw)
-	// fmt.Println(out)
 
 	err := f.cli.InitContext(in.Jgf, policyRequest)
 	if err != nil {
@@ -72,6 +66,22 @@ func (s *Fluxion) Cancel(ctx context.Context, in *pb.CancelRequest) (*pb.CancelR
 	}
 	response.Status = pb.CancelResponse_CANCEL_SUCCESS
 	return &response, err
+}
+
+// PartialCancel allows for adding additional JGF to "prune" or partially cancel
+func (s *Fluxion) PartialCancel(ctx context.Context, in *pb.PartialCancelRequest) (*pb.PartialCancelResponse, error) {
+
+	response := pb.PartialCancelResponse{}
+	fmt.Printf("[Fluxion] received partial cancel request %v\n", in)
+	// The last argument is noent_ok, ok if doesn't exist
+	//err := s.cli.PartialCancel(in.JobID, in.Jgf, true)
+	//if err != nil {
+	//	fmt.Printf("[Fluxion] issue with cancel %s\n", err)
+	//	response.Status = pb.CancelResponse_CANCEL_ERROR
+	//	return &response, err
+	//}
+	//response.Status = pb.CancelResponse_CANCEL_SUCCESS
+	return &response, nil
 }
 
 // Match wraps the MatchAllocate function of the fluxion go bindings

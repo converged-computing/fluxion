@@ -1,8 +1,9 @@
 module github.com/converged-computing/fluxion
 
-go 1.22
+go 1.22.6
 
 require (
+	github.com/compspec/jgf-go v0.0.0-20250131025327-6ecd3b29ccf2
 	github.com/converged-computing/jsongraph-go v0.0.0-20240229082022-c6887a5a00fe
 	github.com/flux-framework/fluxion-go v0.32.1-0.20240420052153-909523c84ca2
 	github.com/pkg/errors v0.9.1

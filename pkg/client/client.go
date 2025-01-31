@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 
+	"github.com/compspec/jgf-go/pkg/jgf"
 	pb "github.com/converged-computing/fluxion/pkg/fluxion-grpc"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
@@ -16,6 +17,16 @@ type FluxionClient struct {
 	host       string
 	connection *grpc.ClientConn
 	service    pb.FluxionServiceClient
+
+	// These are intended for partial cancel
+	jgf *jgf.FluxJGF
+
+	nodeLookup map[string]jgf.Node
+
+	// Store nodes based on paths
+	nodePaths  map[string]jgf.Node
+	edgeLookup map[string][]jgf.Edge
+	hostLookup map[string]string
 }
 
 var _ Client = (*FluxionClient)(nil)
@@ -25,6 +36,7 @@ type Client interface {
 	Match(ctx context.Context, in *pb.MatchRequest, opts ...grpc.CallOption) (*pb.MatchResponse, error)
 	Satisfy(ctx context.Context, in *pb.SatisfyRequest, opts ...grpc.CallOption) (*pb.SatisfyResponse, error)
 	Cancel(ctx context.Context, in *pb.CancelRequest, opts ...grpc.CallOption) (*pb.CancelResponse, error)
+	PartialCancel(ctx context.Context, in *pb.PartialCancelRequest, opts ...grpc.CallOption) (*pb.PartialCancelResponse, error)
 	Init(ctx context.Context, in *pb.InitRequest, opts ...grpc.CallOption) (*pb.InitResponse, error)
 
 	// Functions that aren't related to fluxion directly
@@ -44,7 +56,7 @@ func NewClient(host string) (Client, error) {
 
 	// Set up a connection to the server.
 	creds := grpc.WithTransportCredentials(insecure.NewCredentials())
-	conn, err := grpc.Dial(c.GetHost(), creds, grpc.WithBlock())
+	conn, err := grpc.Dial(c.GetHost(), creds)
 	if err != nil {
 		return nil, errors.Wrapf(err, "unable to connect to %s", host)
 	}

@@ -25,6 +25,7 @@ type FluxionServiceClient interface {
 	// Sends a Match command
 	Match(ctx context.Context, in *MatchRequest, opts ...grpc.CallOption) (*MatchResponse, error)
 	Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error)
+	PartialCancel(ctx context.Context, in *PartialCancelRequest, opts ...grpc.CallOption) (*PartialCancelResponse, error)
 	Satisfy(ctx context.Context, in *SatisfyRequest, opts ...grpc.CallOption) (*SatisfyResponse, error)
 	Init(ctx context.Context, in *InitRequest, opts ...grpc.CallOption) (*InitResponse, error)
 }
@@ -49,6 +50,15 @@ func (c *fluxionServiceClient) Match(ctx context.Context, in *MatchRequest, opts
 func (c *fluxionServiceClient) Cancel(ctx context.Context, in *CancelRequest, opts ...grpc.CallOption) (*CancelResponse, error) {
 	out := new(CancelResponse)
 	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/Cancel", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fluxionServiceClient) PartialCancel(ctx context.Context, in *PartialCancelRequest, opts ...grpc.CallOption) (*PartialCancelResponse, error) {
+	out := new(PartialCancelResponse)
+	err := c.cc.Invoke(ctx, "/fluxion.FluxionService/PartialCancel", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,6 +90,7 @@ type FluxionServiceServer interface {
 	// Sends a Match command
 	Match(context.Context, *MatchRequest) (*MatchResponse, error)
 	Cancel(context.Context, *CancelRequest) (*CancelResponse, error)
+	PartialCancel(context.Context, *PartialCancelRequest) (*PartialCancelResponse, error)
 	Satisfy(context.Context, *SatisfyRequest) (*SatisfyResponse, error)
 	Init(context.Context, *InitRequest) (*InitResponse, error)
 	mustEmbedUnimplementedFluxionServiceServer()
@@ -94,6 +105,9 @@ func (UnimplementedFluxionServiceServer) Match(context.Context, *MatchRequest) (
 }
 func (UnimplementedFluxionServiceServer) Cancel(context.Context, *CancelRequest) (*CancelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Cancel not implemented")
+}
+func (UnimplementedFluxionServiceServer) PartialCancel(context.Context, *PartialCancelRequest) (*PartialCancelResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PartialCancel not implemented")
 }
 func (UnimplementedFluxionServiceServer) Satisfy(context.Context, *SatisfyRequest) (*SatisfyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Satisfy not implemented")
@@ -150,6 +164,24 @@ func _FluxionService_Cancel_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FluxionService_PartialCancel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PartialCancelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FluxionServiceServer).PartialCancel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fluxion.FluxionService/PartialCancel",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FluxionServiceServer).PartialCancel(ctx, req.(*PartialCancelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _FluxionService_Satisfy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SatisfyRequest)
 	if err := dec(in); err != nil {
@@ -200,6 +232,10 @@ var FluxionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Cancel",
 			Handler:    _FluxionService_Cancel_Handler,
+		},
+		{
+			MethodName: "PartialCancel",
+			Handler:    _FluxionService_PartialCancel_Handler,
 		},
 		{
 			MethodName: "Satisfy",
