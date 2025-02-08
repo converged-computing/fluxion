@@ -9,12 +9,16 @@ service FluxionService {
     // Sends a Match command
     rpc Match(MatchRequest) returns (MatchResponse) {}
     rpc Cancel(CancelRequest) returns (CancelResponse) {}
+    rpc PartialCancel(PartialCancelRequest) returns (PartialCancelResponse) {}
+    rpc Satisfy(SatisfyRequest) returns (SatisfyResponse) {}
     rpc Init(InitRequest) returns (InitResponse) {}
+
 }
 
 message InitRequest {
     string policy = 1;
     string jgf = 2;
+    bool enablePartialCancel = 3;
 }
 
 message InitResponse {
@@ -29,8 +33,7 @@ message InitResponse {
 // The Match request message (allocate, allocate_orelse_reserve)
 message MatchRequest {
     string jobspec = 1;
-    string request = 2;
-    bool reservation = 3;
+    bool reservation = 2;
 }
 
 // The Match response message
@@ -48,8 +51,28 @@ message MatchResponse {
     ResultType status = 6;
 }
 
+// The Satisfy request makes a satisfy request to fluxion
+message SatisfyRequest {
+    string jobspec = 1;
+    bool reservation = 2;
+}
+
+message SatisfyResponse {
+    string allocation = 1;
+    int64 jobid = 2;
+    bool reserved = 3;
+    int64 at = 4;
+    float overhead = 5;
+    enum ResultType {
+        SATISFY_SUCCESS = 0;
+        SATISFY_ERROR = 1;
+        SATISFY_DENIED = 2;
+    }
+    ResultType status = 6;
+}
+
 message CancelRequest {
-    int64 jobID = 2;
+    int64 jobID = 1;
 }
 
 // The Match response message
@@ -64,4 +87,27 @@ message CancelResponse {
         CANCEL_DENIED = 3;
     }
     ResultType status = 3;
+}
+
+message PartialCancelRequest {
+    int64 jobID = 1;
+    repeated string cores = 2;
+    string jgf = 3;
+    bool mustExist = 4;
+}
+
+// The Match response message
+message PartialCancelResponse {
+    int64 jobID = 1;
+    int32 error = 2;
+    bool fullRemoval = 3;
+
+    enum ResultType {
+        PARTIAL_CANCEL_SUCCESS = 0;
+        PARTIAL_CANCEL_REQUEST_ERROR = 1;
+        PARTIAL_CANCEL_ERROR = 2;
+        PARTIAL_CANCEL_DENIED = 3;
+        PARTIAL_CANCEL_DISABLED = 4;
+    }
+    ResultType status = 4;
 }
