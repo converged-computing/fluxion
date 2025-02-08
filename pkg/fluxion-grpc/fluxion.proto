@@ -93,13 +93,14 @@ message PartialCancelRequest {
     int64 jobID = 1;
     repeated string cores = 2;
     string jgf = 3;
+    bool mustExist = 4;
 }
 
 // The Match response message
 message PartialCancelResponse {
     int64 jobID = 1;
     int32 error = 2;
-    bool totalCancel = 3;
+    bool fullRemoval = 3;
 
     enum ResultType {
         PARTIAL_CANCEL_SUCCESS = 0;

@@ -73,14 +73,17 @@ func (s *Fluxion) PartialCancel(ctx context.Context, in *pb.PartialCancelRequest
 
 	response := pb.PartialCancelResponse{}
 	fmt.Printf("[Fluxion] received partial cancel request %v\n", in)
+
 	// The last argument is noent_ok, ok if doesn't exist
-	//err := s.cli.PartialCancel(in.JobID, in.Jgf, true)
-	//if err != nil {
-	//	fmt.Printf("[Fluxion] issue with cancel %s\n", err)
-	//	response.Status = pb.CancelResponse_CANCEL_ERROR
-	//	return &response, err
-	//}
-	//response.Status = pb.CancelResponse_CANCEL_SUCCESS
+	fullRemoval, err := s.cli.PartialCancel(in.JobID, in.Jgf, in.MustExist)
+
+	if err != nil {
+		fmt.Printf("[Fluxion] issue with partial cancel %s\n", err)
+		response.Status = pb.PartialCancelResponse_PARTIAL_CANCEL_ERROR
+		return &response, err
+	}
+	response.Status = pb.PartialCancelResponse_PARTIAL_CANCEL_SUCCESS
+	response.FullRemoval = fullRemoval
 	return &response, nil
 }
 

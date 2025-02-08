@@ -43,6 +43,7 @@ type Client interface {
 	Close() error
 	GetHost() string
 	Connected() bool
+	cacheGraph()
 }
 
 // NewClient creates a new FluxionClient
